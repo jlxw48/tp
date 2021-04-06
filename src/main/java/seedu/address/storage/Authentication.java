@@ -55,10 +55,10 @@ public class Authentication {
     }
 
     /**
-     * Instantiates Authentication object with the default path "/data/addressbook.json"
+     * Instantiates Authentication object with the default path "/data/clientbook.json"
      */
     public Authentication() {
-        this.filePath = Paths.get("/data/addressbook.json");
+        this.filePath = Paths.get("/data/clientbook.json");
         this.password = Optional.empty();
     }
 
@@ -210,7 +210,7 @@ public class Authentication {
     }
 
     /**
-     * Attempts to unzip the unprotected addressbook.zip file.
+     * Attempts to unzip the unprotected clientbook.zip file.
      * @return true if unzip is successful
      * @throws ZipException when trying to unzip the file.
      */
@@ -221,7 +221,7 @@ public class Authentication {
     /**
      * Gets the path of the .zip file containing the data .json file.
      */
-    private String getZipPath() {
+    String getZipPath() {
         String zipPath = filePath.toString().replaceAll("\\.json$", ".zip");
         return zipPath;
     }
@@ -234,7 +234,7 @@ public class Authentication {
         return folderPath;
     }
 
-    private String getPasswordFilePath() {
+    String getPasswordFilePath() {
         return this.getFolderPath() + "/" + PASSWORD_FILE_NAME;
     }
 

@@ -20,6 +20,7 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
+import seedu.address.model.shortcut.ShortcutLibrary;
 import seedu.address.storage.Authentication;
 
 /**
@@ -33,7 +34,7 @@ public class UnlockCommandTest {
     private static final Path TEST_DATA_FOLDER = Paths.get("src", "test", "data", "LockTest");
 
     private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs(),
-            new Authentication(TEST_DATA_FOLDER));
+            new Authentication(TEST_DATA_FOLDER), new ShortcutLibrary());
 
     @Test
     public void execute_unlock_success() throws CommandException, NoSuchPaddingException, NoSuchAlgorithmException,
@@ -50,5 +51,19 @@ public class UnlockCommandTest {
         model.getAuthentication().setPassword(Optional.of(DEFAULT_PASSWORD));
         UnlockCommand command = new UnlockCommand(INCORRECT_PASSWORD);
         assertCommandFailure(command, model, UnlockCommand.MESSAGE_INCORRECT_PASSWORD);
+    }
+
+    @Test
+    public void execute_equals_success() {
+        UnlockCommand firstCommand = new UnlockCommand(DEFAULT_PASSWORD);
+        UnlockCommand secondCommand = new UnlockCommand(DEFAULT_PASSWORD);
+        assertEquals(firstCommand, secondCommand);
+    }
+
+    @Test
+    public void execute_unlockAlreadyUnlocked_throwsCommandException() {
+        model.getAuthentication().removePassword();
+        UnlockCommand command = new UnlockCommand(DEFAULT_PASSWORD);
+        assertCommandFailure(command, model, UnlockCommand.MESSAGE_ALREADY_UNLOCKED);
     }
 }
