@@ -74,7 +74,7 @@ Please use the table of contents to navigate through the user guide quickly. Cli
         * [**4.1.5** `meet`: Schedule a meeting with a client](#meet-schedule-a-meeting-with-a-client)
     * [<span style="color:#c93640">**4.2** Contact Viewing</span>](#contact-viewing-features)
         * [**4.2.1** `list`: List all clients](#list-list-all-clients)
-        * [**4.2.2** `find`: Search for client contacts based on keywords](#find-search-for-clients-contact-based-on-keywords)
+        * [**4.2.2** `find`: Search for client contacts based on keywords](#find-search-for-client-contacts-based-on-keywords)
         * [**4.2.3** `policy`: Display policies associated with a client](#policy-display-policies-associated-with-a-client)
         * [**4.2.4** `sort`: Sort the list of clients](#sort-sort-list-of-clients)
     * [<span style="color:#c9a500">**4.3** Shortcuts</span>](#shortcuts) 
